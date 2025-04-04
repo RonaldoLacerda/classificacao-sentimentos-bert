@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <title>Resultado da Análise</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        .resultado-container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .positivo {
+            color: green;
+        }
+        .negativo {
+            color: red;
+        }
+        .neutro {
+            color: orange;
+        }
+        .barra-confianca {
+            height: 20px;
+            background-color: #e0e0e0;
+            border-radius: 10px;
+            margin: 10px 0;
+            overflow: hidden;
+        }
+        .barra-confianca-fill {
+            height: 100%;
+            background-color: #4CAF50;
+        }
+        .detalhes {
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid #eee;
+        }
+        a {
+            display: inline-block;
+            margin-top: 15px;
+            color: #4CAF50;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Resultado da Análise</h1>
+
+    <div class="resultado-container">
+        <h3>Texto analisado:</h3>
+        <p>{{ texto }}</p>
+
+        <h3>Sentimento:</h3>
+        <p class="{{ resultado.lower() }}">{{ resultado }}</p>
+
+        <h3>Confiança:</h3>
+        <p>{{ confianca }}</p>
+        <div class="barra-confianca">
+            <div class="barra-confianca-fill" style="width: {{ confianca }}"></div>
+        </div>
+
+        <div class="detalhes">
+            <h3>Palavras-chave detectadas:</h3>
+            <p>{{ palavras }}</p>
+        </div>
+
+    </div>
+
+    <a href="/">Voltar</a>
+</body>
+</html>
